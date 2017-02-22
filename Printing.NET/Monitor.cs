@@ -1,6 +1,8 @@
 ﻿using Printing.NET.Native;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace Printing.NET
@@ -8,13 +10,8 @@ namespace Printing.NET
     /// <summary>
     /// Представляет монитор печати для открытия портов.
     /// </summary>
-    public class Monitor : IMonitor
+    public class Monitor : PrintableDevice, IMonitor
     {
-        /// <summary>
-        /// Наименование монитора печати.
-        /// </summary>
-        public virtual string Name { get; protected set; }
-
         /// <summary>
         /// Окружение, для которого был написан драйвер (например, Windows NT x86, Windows IA64 или Windows x64).
         /// </summary>
@@ -25,6 +22,9 @@ namespace Printing.NET
         /// </summary>
         public virtual string Dll { get; protected set; }
 
+        /// <summary>
+        /// Возвращает список всех установленных в системе мониторов печати.
+        /// </summary>
         public static Monitor[] All
         {
             get
@@ -47,8 +47,7 @@ namespace Printing.NET
         /// <param name="dll">Имя файла *.dll монитора.</param>
         /// <param name="environment">Окружение, для которого был написан драйвер (например, Windows NT x86, Windows IA64 или Windows x64).</param>
         /// <exception cref="ArgumentNullException" />
-        /// <exception cref="FileNotFoundException" />
-        public Monitor(string name, string dll, Environment environment)
+        public Monitor(string name, string dll, Environment environment) : base(name)
         {
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
             if (string.IsNullOrEmpty(dll)) throw new ArgumentNullException("dll");
@@ -63,14 +62,16 @@ namespace Printing.NET
         /// </summary>
         /// <param name="name">Наименование монитора печати.</param>
         /// <param name="dll">Имя файла *.dll монитора.</param>
+        /// <exception cref="ArgumentNullException" />
         public Monitor(string name, string dll) : this(name, dll, Environment.Current) { }
 
         /// <summary>
         /// Устанавливает монитор печати на удалённой машине.
         /// </summary>
         /// <param name="serverName">Имя сервера.</param>
-        /// <returns>True, если процедура установки прошла успешно, иначе False.</returns>
-        public virtual void Install(string serverName)
+        /// <exception cref="FileNotFoundException"/>
+        /// <exception cref="PrintingException"/>
+        public override void Install(string serverName)
         {
             try
             {
@@ -103,44 +104,21 @@ namespace Printing.NET
         }
 
         /// <summary>
-        /// Устанавливает монитор печати на локальной машине.
-        /// </summary>
-        /// <returns>True, если процедура установки прошла успешно, иначе False.</returns>
-        public void Install() => Install(null);
-
-        public bool TryInstall(string serverName, out PrintingException e)
-        {
-            e = null;
-
-            try
-            {
-                Install(serverName);
-            }
-            catch (PrintingException ex)
-            {
-                e = ex;
-                return false;
-            }
-
-            return true;
-        }
-
-        public bool TryInstall(string serverName) => TryInstall(serverName, out PrintingException e);
-
-        public bool TryInstall() => TryInstall(null);
-
-        /// <summary>
         /// Удалает монитор печати на удалённой машине.
         /// </summary>
         /// <param name="serverName">Имя сервера.</param>
-        /// <returns>True, если процедура удаления прошла успешно, иначе False.</returns>
-        public virtual void Uninstall(string serverName)
+        /// <exception cref="PrintingException"/>
+        public override void Uninstall(string serverName)
         {
             try
             {
-                //IEnumerable<string> ports = Ports.Where(p => p.MonitorName == monitorName).Select(p => p.MonitorName);
+                if (!All.Select(m => m.Name).Contains(Name)) return;
 
-                //foreach (string port in ports) RemovePort(port, monitorName);
+                IEnumerable<Port> openPorts = Port.All.Where(p => p.Monitor?.Name == Name);
+                IEnumerable<Driver> drivers = Driver.All.Where(d => d.Monitor?.Name == Name);
+
+                foreach (Port openPort in openPorts) openPort.Uninstall(serverName);
+                foreach (Driver driver in drivers) driver.Uninstall(serverName);
 
                 if (DeleteMonitor(serverName, Environment.GetEnvironmentName(), Name)) return;
                 if (Marshal.GetLastWin32Error() == PrintingException.ErrorMonitorUnknown) return;
@@ -154,33 +132,6 @@ namespace Printing.NET
             }
         }
 
-        /// <summary>
-        /// Удаляет монитор печати на локальной машине.
-        /// </summary>
-        /// <returns>True, если процедура удаления прошла успешно, иначе False.</returns>
-        public void Uninstall() => Uninstall(null);
-
-        public bool TryUninstall(string serverName, out PrintingException e)
-        {
-            e = null;
-
-            try
-            {
-                Uninstall(serverName);
-            }
-            catch (PrintingException ex)
-            {
-                e = ex;
-                return false;
-            }
-
-            return true;
-        }
-
-        public bool TryUninstall(string serverName) => TryUninstall(serverName, out PrintingException e);
-
-        public bool TryUninstall() => TryUninstall(null);
-
         #region Native
         /// <summary>
         /// Производит установку монитора принтера в систему.
@@ -188,7 +139,7 @@ namespace Printing.NET
         /// <param name="serverName">Имя сервера, на который необходимо произвести установку. Если равно null - устанавливает на локальную машину.</param>
         /// <param name="level">Номер версии структуры. Должен быть равен 2.</param>
         /// <param name="monitor">Экземпляр структуры <see cref="MonitorInfo"/>.</param>
-        /// <returns></returns>
+        /// <returns>True, если операция выполнена успешно, иначе False.</returns>
         [DllImport("winspool.drv", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern bool AddMonitor(string serverName, uint level, ref MonitorInfo monitor);
 
@@ -201,7 +152,7 @@ namespace Printing.NET
         /// <param name="bufferSize">Размер буфера экземпляров структур <see cref="MonitorInfo"/> (в байтах).</param>
         /// <param name="bytesNeeded">Число полученных байт размера буфера.</param>
         /// <param name="bufferReturnedLength">Число экземпляров структур.</param>
-        /// <returns></returns>
+        /// <returns>True, если операция выполнена успешно, иначе False.</returns>
         [DllImport("winspool.drv", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern bool EnumMonitors(string serverName, uint level, IntPtr monitors, uint bufferSize, ref uint bytesNeeded, ref uint bufferReturnedLength);
 
@@ -211,7 +162,7 @@ namespace Printing.NET
         /// <param name="serverName">Имя сервера, на который необходимо произвести установку. Если равно null - устанавливает на локальную машину.</param>
         /// <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
         /// <param name="monitorName">Имя удаляемого монитора.</param>
-        /// <returns></returns>
+        /// <returns>True, если операция выполнена успешно, иначе False.</returns>
         [DllImport("winspool.drv", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern bool DeleteMonitor(string serverName, string environment, string monitorName);
         #endregion

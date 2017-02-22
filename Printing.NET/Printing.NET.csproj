@@ -32,23 +32,39 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataType.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Environment.cs" />
+    <Compile Include="IDriver.cs" />
     <Compile Include="IMonitor.cs" />
+    <Compile Include="IPort.cs" />
     <Compile Include="IPrintableDevice.cs" />
+    <Compile Include="IPrinter.cs" />
     <Compile Include="Monitor.cs" />
+    <Compile Include="Native\DriverInfo.cs" />
     <Compile Include="Native\MonitorInfo.cs" />
+    <Compile Include="Native\PortData.cs" />
+    <Compile Include="Native\PortInfo.cs" />
+    <Compile Include="Native\PrinterAccess.cs" />
+    <Compile Include="Native\PrinterDefaults.cs" />
+    <Compile Include="Native\PrinterEnumFlag.cs" />
+    <Compile Include="Native\PrinterInfo.cs" />
     <Compile Include="Port.cs" />
+    <Compile Include="PortType.cs" />
+    <Compile Include="PrintableDevice.cs" />
     <Compile Include="Printer.cs" />
     <Compile Include="PrintingApi.cs" />
     <Compile Include="PrintingException.cs" />
+    <Compile Include="PrintingExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XcvDataType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
