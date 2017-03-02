@@ -121,7 +121,7 @@ namespace Printing.NET
         public Port OpenPort(string name, string description, PortType type, Monitor monitor, string serverName)
         {
             Port port = new Port(name, description, type, monitor);
-            monitor.TryInstall(serverName);
+            port.TryInstall(serverName);
 
             return port;
         }
