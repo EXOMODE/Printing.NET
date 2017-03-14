@@ -993,20 +993,93 @@ namespace Printing.NET
             => TryGetInfo(handler, null, out dataCollection, out PrintingException e);
 
         /// <summary>
-        /// Перезагружает службу печати.
+        /// Останавливает службу печати.
+        /// </summary>
+        /// <param name="e">Исключение, возникшее в ходе выполнения операции.</param>
+        /// <returns>True, если операция прошла успешно, иначе False.</returns>
+        public static bool TryStop(out PrintingException e)
+        {
+            e = null;
+
+            try
+            {
+                ServiceController sc = new ServiceController("Spooler");
+
+                if (sc.CanStop && sc.Status != ServiceControllerStatus.Stopped && sc.Status != ServiceControllerStatus.StopPending)
+                {
+                    sc.Stop();
+                    sc.WaitForStatus(ServiceControllerStatus.Stopped);
+                }
+
+                return sc.Status == ServiceControllerStatus.Stopped;
+            }
+            catch (Exception ex)
+            {
+                e = new PrintingException(ex.Message, ex);
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Останавливает службу печати.
         /// </summary>
         /// <returns>True, если операция прошла успешно, иначе False.</returns>
-        public static bool TryRestart()
+        public static bool TryStop() => TryStop(out PrintingException e);
+
+        /// <summary>
+        /// Запускает службу печати.
+        /// </summary>
+        /// <param name="e">Исключение, возникшее в ходе выполнения операции.</param>
+        /// <returns>True, если операция прошла успешно, иначе False.</returns>
+        public static bool TryStart(out PrintingException e)
+        {
+            e = null;
+
+            try
+            {
+                ServiceController sc = new ServiceController("Spooler");
+
+                if (sc.Status != ServiceControllerStatus.Running && sc.Status != ServiceControllerStatus.StartPending)
+                {
+                    sc.Start();
+                    sc.WaitForStatus(ServiceControllerStatus.Running);
+                }
+
+                return sc.Status == ServiceControllerStatus.Running;
+            }
+            catch (Exception ex)
+            {
+                e = new PrintingException(ex.Message, ex);
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Запускает службу печати.
+        /// </summary>
+        /// <returns>True, если операция прошла успешно, иначе False.</returns>
+        public static bool TryStart() => TryStart(out PrintingException e);
+
+        /// <summary>
+        /// Перезагружает службу печати.
+        /// </summary>
+        /// <param name="e">Исключение, возникшее в ходе выполнения операции.</param>
+        /// <returns>True, если операция прошла успешно, иначе False.</returns>
+        public static bool TryRestart(out PrintingException e)
         {
             int tryCount = 5;
+            e = null;
 
             while (tryCount > 0)
             {
                 try
                 {
+                    e = null;
                     ServiceController sc = new ServiceController("Spooler");
 
-                    if (sc.Status != ServiceControllerStatus.Stopped || sc.Status != ServiceControllerStatus.StopPending)
+                    if (sc.Status != ServiceControllerStatus.Stopped && sc.Status != ServiceControllerStatus.StopPending)
                     {
                         sc.Stop();
                         sc.WaitForStatus(ServiceControllerStatus.Stopped);
@@ -1017,13 +1090,20 @@ namespace Printing.NET
 
                     return sc.Status == ServiceControllerStatus.Running;
                 }
-                catch
+                catch (Exception ex)
                 {
+                    e = new PrintingException(ex.Message, ex);
                     tryCount--;
                 }
             }
 
             return false;
         }
+
+        /// <summary>
+        /// Перезагружает службу печати.
+        /// </summary>
+        /// <returns>True, если операция прошла успешно, иначе False.</returns>
+        public static bool TryRestart() => TryRestart(out PrintingException e);
     }
 }

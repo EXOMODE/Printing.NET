@@ -122,7 +122,6 @@ namespace Printing.NET
 
                 if (DeleteMonitor(serverName, Environment.GetEnvironmentName(), Name)) return;
                 if (Marshal.GetLastWin32Error() == PrintingException.ErrorMonitorUnknown) return;
-                if (DeleteMonitor(serverName, Environment.GetEnvironmentName(), Name)) return;
 
                 throw new PrintingException(Marshal.GetLastWin32Error());
             }

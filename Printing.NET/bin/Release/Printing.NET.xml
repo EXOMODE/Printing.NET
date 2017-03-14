@@ -1,0 +1,2441 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Printing.NET</name>
+    </assembly>
+    <members>
+        <member name="T:Printing.NET.DataType">
+            <summary>
+            Протокол данных печати.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.Driver">
+            <summary>
+            Представляет данные для работы с драйвером печати.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Driver.Monitor">
+            <summary>
+            Монитор печати.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Driver.Version">
+            <summary>
+            Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Driver.Environment">
+            <summary>
+            Окружение, для которого был написан драйвер.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Driver.Dll">
+            <summary>
+            Полный или относительный путь к файлу драйвера устройства.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Driver.DataFile">
+            <summary>
+            Полный или относительный путь к файлу данных драйвера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Driver.ConfigFile">
+            <summary>
+            Полный или относительный путь к dll данных конфигурации драйвера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Driver.HelpFile">
+            <summary>
+            Полный или относительный путь к dll данных HLP-файла драйвера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Driver.DependentFiles">
+            <summary>
+            Зависимые файлы.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Driver.DefaultDataType">
+            <summary>
+            Тип данных принтера по умолчанию.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Driver.Directory">
+            <summary>
+            Путь к системному каталогу драйверов печати.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Driver.All">
+            <summary>
+            Возвращает коллекцию всех установленных драйверов печати в системе.
+            </summary>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,Printing.NET.DataType,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="defaultDataType">Тип данных принтера по умолчанию.</param>
+            <param name="dependentFiles">Зависимые файлы.</param>
+            <param name="monitorName">Наименование монитора печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,Printing.NET.DataType,System.String,Printing.NET.IMonitor)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="defaultDataType">Тип данных принтера по умолчанию.</param>
+            <param name="dependentFiles">Зависимые файлы.</param>
+            <param name="monitor">Монитор печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,Printing.NET.DataType,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="defaultDataType">Тип данных принтера по умолчанию.</param>
+            <param name="monitorName">Наименование монитора печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,Printing.NET.DataType,Printing.NET.IMonitor)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="defaultDataType">Тип данных принтера по умолчанию.</param>
+            <param name="monitor">Монитор печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="monitorName">Наименование монитора печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,Printing.NET.IMonitor)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="monitor">Монитор печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,System.String,System.UInt32,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="monitorName">Наименование монитора печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.IMonitor)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="monitor">Монитор печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="monitorName">Наименование монитора печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,System.String,Printing.NET.IMonitor)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="monitor">Монитор печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="monitorName">Наименование монитора печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String,Printing.NET.IMonitor)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="monitor">Монитор печати.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+        </member>
+        <member name="M:Printing.NET.Driver.#cctor">
+            <summary>
+            Статический инициализатор класса <see cref="T:Printing.NET.Driver"/>.
+            </summary>
+        </member>
+        <member name="M:Printing.NET.Driver.Install(System.String)">
+            <summary>
+            Устанавливает драйвер удалённо в системе.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.Uninstall(System.String)">
+            <summary>
+            Удаляет драйвер удалённо в системе.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+        </member>
+        <member name="M:Printing.NET.Driver.GetPrinterDriverDirectory(System.String,System.String,System.UInt32,System.Text.StringBuilder,System.UInt32,System.UInt32@)">
+            <summary>
+            Возвращает путь к системной директории с установленными драйверами принтера.
+            </summary>
+            <param name="serverName">Имя сервера, с которого требуется получить путь к директории драйвера принтера. Если равно null - получает локальный путь.</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="level">Номер версии структуры. Должен быть равен 1.</param>
+            <param name="driverDirectory">Путь к драйверу принтера.</param>
+            <param name="bufferSize">Размер буфера для вывода пути.</param>
+            <param name="bytesNeeded">Число полученных байт пути.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Driver.AddPrinterDriver(System.String,System.UInt32,Printing.NET.Native.DriverInfo@)">
+            <summary>
+            Добавляет драйвер в систему.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <param name="level">Номер версии структуры. Должен быть равен 1, 2, 3, 4, 5, 6 или 8.</param>
+            <param name="driverInfo">Данные драйвера.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Driver.EnumPrinterDrivers(System.String,System.String,System.UInt32,System.IntPtr,System.UInt32,System.UInt32@,System.UInt32@)">
+            <summary>
+            Возвращает указатель на буфер экземпляров структур <see cref="T:Printing.NET.Native.DriverInfo"/>.
+            </summary>
+            <param name="serverName">Имя сервера, с которого требуется получить список портов. Если равно null - получает на локальной машине.</param>
+            <param name="environment">Окружение (например, Windows x86, Windows IA64, Windows x64, или Windows NT R4000). Если параметр равен null,
+            используется вызываемое окружение клиента (не сервера). Если параметр равен "all", метод верёт список драйверов для всех платформ,
+            для которых они были установлены на сервере.</param>
+            <param name="level">Номер версии структуры. Должен быть равен 1, 2, 3, 4, 5, 6 или 8.</param>
+            <param name="drivers">Указатель на буфер экземпляров структур <see cref="T:Printing.NET.Native.DriverInfo"/>.</param>
+            <param name="bufferSize">Размер буфера экземпляров структур <see cref="T:Printing.NET.Native.DriverInfo"/> (в байтах).</param>
+            <param name="bytesNeeded">Число полученных байт размера буфера.</param>
+            <param name="bufferReturnedLength">Число экземпляров структур.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Driver.DeletePrinterDriver(System.String,System.String,System.String)">
+            <summary>
+            Удаляет драйвер из системы.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <param name="environment">Окружение (например, Windows x86, Windows IA64, Windows x64, или Windows NT R4000). Если параметр равен null,
+            используется вызываемое окружение клиента (не сервера). Если параметр равен "all", метод верёт список драйверов для всех платформ,
+            для которых они были установлены на сервере.</param>
+            <param name="driverName">Наименование драйвера.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="T:Printing.NET.Environment">
+            <summary>
+            Окружение системы.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Environment.Current">
+            <summary>
+            Текущее окружение системы.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Environment.X86">
+            <summary>
+            Windows NT x86.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Environment.X64">
+            <summary>
+            Windows x64.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Environment.IA64">
+            <summary>
+            Windows IA64.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.IDriver">
+            <summary>
+            Представляет интерфейс для реализации сущностей драйверов печати.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IDriver.Monitor">
+            <summary>
+            Монитор печати.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IDriver.Version">
+            <summary>
+            Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IDriver.Environment">
+            <summary>
+            Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IDriver.Dll">
+            <summary>
+            Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IDriver.DataFile">
+            <summary>
+            Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IDriver.ConfigFile">
+            <summary>
+            Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IDriver.HelpFile">
+            <summary>
+            Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IDriver.DependentFiles">
+            <summary>
+            Зависимые файлы.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IDriver.DefaultDataType">
+            <summary>
+            Тип данных принтера по умолчанию.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.IMonitor">
+            <summary>
+            Представляет базовый интерфейс для реализации мониторов печати.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IMonitor.Environment">
+            <summary>
+            Окружение, для которого был написан драйвер (например, Windows NT x86, Windows IA64 или Windows x64).
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IMonitor.Dll">
+            <summary>
+            Имя файла *.dll монитора.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.IPort">
+            <summary>
+            Представляет базовый интерфейс для реализации портов печати.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPort.Monitor">
+            <summary>
+            Монитор, на котором открыт порт.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPort.Description">
+            <summary>
+            Описание порта.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPort.Type">
+            <summary>
+            Тип порта.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.IPrintableDevice">
+            <summary>
+            Представляет базовый интерфейс для реализации устройств, связанных с печатью (мониторы печати, порты принтеров, принтеры).
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPrintableDevice.Name">
+            <summary>
+            Наименование устройства печати.
+            </summary>
+        </member>
+        <member name="M:Printing.NET.IPrintableDevice.Install(System.String)">
+            <summary>
+            Устанавливает устройство печати на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+        </member>
+        <member name="M:Printing.NET.IPrintableDevice.Uninstall(System.String)">
+            <summary>
+            Удаляет устройство печати на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+        </member>
+        <member name="T:Printing.NET.IPrinter">
+            <summary>
+            Представляет интерфейс для реализации принтеров.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPrinter.Port">
+            <summary>
+            Порт, к которому привязан принтер.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPrinter.Driver">
+            <summary>
+            Драйвер, который связан с принтером.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPrinter.ShareName">
+            <summary>
+            Публичное наименование принтера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPrinter.ServerName">
+            <summary>
+            Имя сервера, на котором запущен принтер.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPrinter.Description">
+            <summary>
+            Описание устройства принтера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPrinter.Location">
+            <summary>
+            Расположение принтера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPrinter.Parameters">
+            <summary>
+            Параметры принтера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.IPrinter.DataType">
+            <summary>
+            Тип данных печати.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.Monitor">
+            <summary>
+            Представляет монитор печати для открытия портов.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Monitor.Environment">
+            <summary>
+            Окружение, для которого был написан драйвер (например, Windows NT x86, Windows IA64 или Windows x64).
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Monitor.Dll">
+            <summary>
+            Имя файла *.dll монитора.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Monitor.All">
+            <summary>
+            Возвращает список всех установленных в системе мониторов печати.
+            </summary>
+        </member>
+        <member name="M:Printing.NET.Monitor.#ctor(System.String,System.String,Printing.NET.Environment)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Monitor"/>.
+            </summary>
+            <param name="name">Наименование монитора печати.</param>
+            <param name="dll">Имя файла *.dll монитора.</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows NT x86, Windows IA64 или Windows x64).</param>
+            <exception cref="T:System.ArgumentNullException" />
+        </member>
+        <member name="M:Printing.NET.Monitor.#ctor(System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Monitor"/>.
+            </summary>
+            <param name="name">Наименование монитора печати.</param>
+            <param name="dll">Имя файла *.dll монитора.</param>
+            <exception cref="T:System.ArgumentNullException" />
+        </member>
+        <member name="M:Printing.NET.Monitor.Install(System.String)">
+            <summary>
+            Устанавливает монитор печати на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <exception cref="T:System.IO.FileNotFoundException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Monitor.Uninstall(System.String)">
+            <summary>
+            Удалает монитор печати на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Monitor.AddMonitor(System.String,System.UInt32,Printing.NET.Native.MonitorInfo@)">
+            <summary>
+            Производит установку монитора принтера в систему.
+            </summary>
+            <param name="serverName">Имя сервера, на который необходимо произвести установку. Если равно null - устанавливает на локальную машину.</param>
+            <param name="level">Номер версии структуры. Должен быть равен 2.</param>
+            <param name="monitor">Экземпляр структуры <see cref="T:Printing.NET.Native.MonitorInfo"/>.</param>
+            <returns>True, если операция выполнена успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Monitor.EnumMonitors(System.String,System.UInt32,System.IntPtr,System.UInt32,System.UInt32@,System.UInt32@)">
+            <summary>
+            Возвращает указатель на буфер экземпляров структур <see cref="T:Printing.NET.Native.MonitorInfo"/>.
+            </summary>
+            <param name="serverName">Имя сервера, с которого требуется получить список мониторов. Если равно null - получает на локальной машине.</param>
+            <param name="level">Номер версии структуры. Должен быть равен 1 или 2.</param>
+            <param name="monitors">Указатель на буфер экземпляров структур <see cref="T:Printing.NET.Native.MonitorInfo"/>.</param>
+            <param name="bufferSize">Размер буфера экземпляров структур <see cref="T:Printing.NET.Native.MonitorInfo"/> (в байтах).</param>
+            <param name="bytesNeeded">Число полученных байт размера буфера.</param>
+            <param name="bufferReturnedLength">Число экземпляров структур.</param>
+            <returns>True, если операция выполнена успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Monitor.DeleteMonitor(System.String,System.String,System.String)">
+            <summary>
+            Производит удаление монитора принтера из системы.
+            </summary>
+            <param name="serverName">Имя сервера, на который необходимо произвести установку. Если равно null - устанавливает на локальную машину.</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="monitorName">Имя удаляемого монитора.</param>
+            <returns>True, если операция выполнена успешно, иначе False.</returns>
+        </member>
+        <member name="T:Printing.NET.Native.DriverInfo">
+            <summary>
+            Представляет структуру для хранения информации о драйвере устройства принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.DriverInfo.Version">
+            <summary>
+            Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.DriverInfo.Name">
+            <summary>
+            Имя драйвера (например, "QMS 810").
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.DriverInfo.Environment">
+            <summary>
+            Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.DriverInfo.DriverPath">
+            <summary>
+            Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.DriverInfo.DataFile">
+            <summary>
+            Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.DriverInfo.ConfigFile">
+            <summary>
+            Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.DriverInfo.HelpFile">
+            <summary>
+            Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.DriverInfo.DependentFiles">
+            <summary>
+            Зависимые файлы.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.DriverInfo.MonitorName">
+            <summary>
+            Наименование монитора.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.DriverInfo.DefaultDataType">
+            <summary>
+            Тип данных принтера по умолчанию.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.Native.MonitorInfo">
+            <summary>
+            Представляет структуру для хранения информации о мониторе принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.MonitorInfo.Name">
+            <summary>
+            Наименование монитора.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.MonitorInfo.Environment">
+            <summary>
+            Окружение, для которого был написан драйвер (например, Windows NT x86, Windows IA64 или Windows x64).
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.MonitorInfo.DllName">
+            <summary>
+            Имя файла *.dll монитора.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.Native.PortData">
+            <summary>
+            Представляет данные принтера для <see cref="M:Printing.NET.Port.XcvData(System.IntPtr,System.String,System.IntPtr,System.UInt32,System.IntPtr,System.UInt32,System.UInt32@,System.UInt32@)"/>.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortData.PortName">
+            <summary>
+            Наименование порта.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortData.Version">
+            <summary>
+            Номер версии (по умолчанию равен 1).
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortData.Protocol">
+            <summary>
+            Протокол.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortData.BufferSize">
+            <summary>
+            Размер буфера данных.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortData.ReservedSize">
+            <summary>
+            Размер зарезервированного буфера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortData.HostAddress">
+            <summary>
+            Адрес хоста.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortData.IPAddress">
+            <summary>
+            IP-адрес.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortData.Reserved">
+            <summary>
+            Зарезервированный буфер.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortData.PortNumber">
+            <summary>
+            Номер порта.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.Native.PortInfo">
+            <summary>
+            представляет информацию о порте монитора принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortInfo.PortName">
+            <summary>
+            Наименование поддерживаемого порта (например, "LPT1:").
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortInfo.MonitorName">
+            <summary>
+            Наименование установленного монитора принтера (например, "PJL monitor"). Может быть равно null.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortInfo.Description">
+            <summary>
+            Описание порта (например, если <see cref="F:Printing.NET.Native.PortInfo.PortName"/> равен "LPT1:", <see cref="F:Printing.NET.Native.PortInfo.Description"/> будет равен "printer port"). Может быть равно null.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortInfo.Type">
+            <summary>
+            Тип порта.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PortInfo.Reserved">
+            <summary>
+            Зарезервировано. Должен быть равен 0.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.Native.PrinterAccess">
+            <summary>
+            Права доступа к принтеру.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterAccess.ServerAdmin">
+            <summary>
+            Полный доступ к данным принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterAccess.ServerEnum">
+            <summary>
+            Доступ к чтению данных принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterAccess.PrinterAdmin">
+            <summary>
+            Полный доступ к использованию принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterAccess.PrinterUse">
+            <summary>
+            Ограниченный доступ к использованию принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterAccess.JobAdmin">
+            <summary>
+            Полный доступ к данным очереди печати.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterAccess.JobRead">
+            <summary>
+            Чтение данных очереди печати.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterAccess.StandardRightsRequired">
+            <summary>
+            Стандартные права доступа.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterAccess.PrinterAllAccess">
+            <summary>
+            Самый полный доступ.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.Native.PrinterDefaults">
+            <summary>
+            Представляет установки принтера для <see cref="M:Printing.NET.Port.XcvData(System.IntPtr,System.String,System.IntPtr,System.UInt32,System.IntPtr,System.UInt32,System.UInt32@,System.UInt32@)"/>.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterDefaults.DataType">
+            <summary>
+            Тип данных (по умолчанию равен null).
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterDefaults.DevMode">
+            <summary>
+            Режим работы (по умолчанию равен null).
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterDefaults.DesiredAccess">
+            <summary>
+            Права доступа к принтеру.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.Native.PrinterEnumFlag">
+            <summary>
+            Флаги выборки принтеров при получении их списка.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.Native.PrinterInfo">
+            <summary>
+            Представляет структуру данных принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterInfo.ServerName">
+            <summary>
+            Имя сервера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterInfo.PrinterName">
+            <summary>
+            Наименование принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterInfo.ShareName">
+            <summary>
+            Публичное наименование принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterInfo.PortName">
+            <summary>
+            Наименование порта, привязанного к принтеру.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterInfo.DriverName">
+            <summary>
+            Наименование драйвера принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterInfo.Comment">
+            <summary>
+            Описание принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterInfo.Location">
+            <summary>
+            Местоположение принтера.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterInfo.PrintProcessor">
+            <summary>
+            Процессор печати, связанный с принтером.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.Native.PrinterInfo.DataType">
+            <summary>
+            Тип данных печати принтера.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.Port">
+            <summary>
+            Представляет порт для запуска принтера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Port.Monitor">
+            <summary>
+            Монитор, на котором открыт порт.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Port.Description">
+            <summary>
+            Описание порта.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Port.Type">
+            <summary>
+            Тип порта.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Port.All">
+            <summary>
+            Возвращает список всех установленных в системе портов печати.
+            </summary>
+        </member>
+        <member name="M:Printing.NET.Port.#ctor(System.String,System.String,Printing.NET.PortType,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Port"/>.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="type">Тип порта.</param>
+            <param name="monitorName">Наименование монитора печати, на котором открыт порт.</param>
+            <exception cref="T:System.ArgumentNullException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Port.#ctor(System.String,System.String,Printing.NET.PortType,Printing.NET.IMonitor)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Port"/>.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="type">Тип порта.</param>
+            <param name="monitor">Монитор печати, на котором открыт порт.</param>
+            <exception cref="T:System.ArgumentNullException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Port.#ctor(System.String,System.String,Printing.NET.PortType)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Port"/>.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="type">Тип порта.</param>
+            <exception cref="T:System.ArgumentNullException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Port.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Port"/>.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="monitorName">Наименование монитора печати, на котором открыт порт.</param>
+            <exception cref="T:System.ArgumentNullException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Port.#ctor(System.String,System.String,Printing.NET.IMonitor)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Port"/>.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="monitor">Монитор печати, на котором открыт порт.</param>
+            <exception cref="T:System.ArgumentNullException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Port.#ctor(System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Port"/>.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <exception cref="T:System.ArgumentNullException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Port.#ctor(System.String,Printing.NET.IMonitor)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Port"/>.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="monitor">Монитор печати, на котором открыт порт.</param>
+            <exception cref="T:System.ArgumentNullException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Port.#ctor(System.String,Printing.NET.PortType)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Port"/>.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="type">Тип порта.</param>
+            <exception cref="T:System.ArgumentNullException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Port.#ctor(System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Port"/>.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <exception cref="T:System.ArgumentNullException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Port.Install(System.String)">
+            <summary>
+            Открывает порт на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <exception cref="!:FileNotFoundException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Port.Uninstall(System.String)">
+            <summary>
+            Закрывает порт на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <exception cref="!:FileNotFoundException"/>
+            <exception cref="T:Printing.NET.PrintingException"/>
+        </member>
+        <member name="M:Printing.NET.Port.OpenPrinter(System.String,System.IntPtr@,Printing.NET.Native.PrinterDefaults@)">
+            <summary>
+            Получает указатель на принтер.
+            </summary>
+            <param name="printerName">Имя принтера.</param>
+            <param name="printer">Указатель на принтер.</param>
+            <param name="printerDefaults">Установки для <see cref="M:Printing.NET.Port.XcvData(System.IntPtr,System.String,System.IntPtr,System.UInt32,System.IntPtr,System.UInt32,System.UInt32@,System.UInt32@)"/>.</param>
+            <returns>True, если операция выполнена успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Port.ClosePrinter(System.IntPtr)">
+            <summary>
+            Освобождает ресурсы принтера.
+            </summary>
+            <param name="printer">Указатель принтера.</param>
+            <returns>True, если операция выполнена успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Port.XcvData(System.IntPtr,System.String,System.IntPtr,System.UInt32,System.IntPtr,System.UInt32,System.UInt32@,System.UInt32@)">
+            <summary>
+            Производит оперции с принтером.
+            </summary>
+            <param name="printer">Указатель на принтер.</param>
+            <param name="dataType">Тип операции.</param>
+            <param name="inputData">Входные данные.</param>
+            <param name="inputDataSize">Размер буфера входных данных.</param>
+            <param name="outputData">Выходные данные.</param>
+            <param name="outputDataSize">Размер буфера выходных данных.</param>
+            <param name="outputNeeded">Размер указателя на выходные данные.</param>
+            <param name="status">Статус операции.</param>
+            <returns>True, если операция выполнена успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Port.EnumPorts(System.String,System.UInt32,System.IntPtr,System.UInt32,System.UInt32@,System.UInt32@)">
+            <summary>
+            Возвращает указатель на буфер экземпляров структур <see cref="T:Printing.NET.Native.PortInfo"/>.
+            </summary>
+            <param name="serverName">Имя сервера, с которого требуется получить список портов. Если равно null - получает на локальной машине.</param>
+            <param name="level">Номер версии структуры. Должен быть равен 1 или 2.</param>
+            <param name="ports">Указатель на буфер экземпляров структур <see cref="T:Printing.NET.Native.PortInfo"/>.</param>
+            <param name="bufferSize">Размер буфера экземпляров структур <see cref="T:Printing.NET.Native.PortInfo"/> (в байтах).</param>
+            <param name="bytesNeeded">Число полученных байт размера буфера.</param>
+            <param name="bufferReturnedLength">Число экземпляров структур.</param>
+            <returns>True, если операция выполнена успешно, иначе False.</returns>
+        </member>
+        <member name="T:Printing.NET.PortType">
+            <summary>
+            Тип порта для монитора печати.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PortType.Write">
+            <summary>
+            Запись данных.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PortType.Read">
+            <summary>
+            Чтение данных.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PortType.Redirected">
+            <summary>
+            Перенаправление данных.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PortType.NetAttached">
+            <summary>
+            Отправка данных на сервер.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.PrintableDevice">
+            <summary>
+            Представляет базовый класс для всех компонентов устройства печати.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.PrintableDevice.Name">
+            <summary>
+            Наименование компонента устройства печати.
+            </summary>
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.#ctor(System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.PrintableDevice"/>.
+            </summary>
+            <param name="name"></param>
+            <exception cref="T:System.ArgumentNullException"/>
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.Install(System.String)">
+            <summary>
+            Устанавливает компонента устройства печати на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <exception cref="T:System.IO.FileNotFoundException" />
+            <exception cref="T:Printing.NET.PrintingException" />
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.Install">
+            <summary>
+            Устанавливает компонента устройства печати на локальной машине.
+            </summary>
+            <exception cref="T:System.IO.FileNotFoundException" />
+            <exception cref="T:Printing.NET.PrintingException" />
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.TryInstall(System.String,Printing.NET.PrintingException@)">
+            <summary>
+            Устанавливает компонента устройства печати на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <param name="e">Исключение, возникшее в процессе установки.</param>
+            <returns>True, если процедура установки прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.TryInstall(System.String)">
+            <summary>
+            Устанавливает компонента устройства печати на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <returns>True, если процедура установки прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.TryInstall(Printing.NET.PrintingException@)">
+            <summary>
+            Устанавливает компонента устройства печати на локальной машине.
+            </summary>
+            <param name="e">Исключение, возникшее в процессе установки.</param>
+            <returns>True, если процедура установки прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.TryInstall">
+            <summary>
+            Устанавливает компонента устройства печати на локальной машине.
+            </summary>
+            <returns>True, если процедура установки прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.Uninstall(System.String)">
+            <summary>
+            Удалает компонента устройства печати на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <exception cref="T:Printing.NET.PrintingException" />
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.Uninstall">
+            <summary>
+            Удаляет компонента устройства печати на локальной машине.
+            </summary>
+            <exception cref="T:Printing.NET.PrintingException" />
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.TryUninstall(System.String,Printing.NET.PrintingException@)">
+            <summary>
+            Удалает компонента устройства печати на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <param name="e">Исключение, возникшее в процессе удаления.</param>
+            <returns>True, если процедура удаления прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.TryUninstall(System.String)">
+            <summary>
+            Удалает компонента устройства печати на удалённой машине.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <returns>True, если процедура удаления прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.TryUninstall(Printing.NET.PrintingException@)">
+            <summary>
+            Удалает компонента устройства печати на локальной машине.
+            </summary>
+            <param name="e">Исключение, возникшее в процессе удаления.</param>
+            <returns>True, если процедура удаления прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintableDevice.TryUninstall">
+            <summary>
+            Удалает компонента устройства печати на локальной машине.
+            </summary>
+            <returns>True, если процедура удаления прошла успешно, иначе False.</returns>
+        </member>
+        <member name="T:Printing.NET.Printer">
+            <summary>
+            Представляет устройство принтера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Printer.Port">
+            <summary>
+            Порт, к которому привязан принтер.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Printer.Driver">
+            <summary>
+            Драйвер, который связан с принтером.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Printer.ShareName">
+            <summary>
+            Публичное наименование принтера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Printer.Description">
+            <summary>
+            Описание устройства принтера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Printer.DataType">
+            <summary>
+            Тип данных печати.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Printer.Processor">
+            <summary>
+            Процессор очереди печати.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Printer.ServerName">
+            <summary>
+            Имя сервера, на котором запущен принтер.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Printer.Location">
+            <summary>
+            Расположение принтера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Printer.Parameters">
+            <summary>
+            Параметры принтера.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Printer.Default">
+            <summary>
+            Задаёт или возвращает принтер по умолчанию.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.Printer.All">
+            <summary>
+            Список всех установленных принтеров в системе.
+            </summary>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,Printing.NET.DataType,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="portName">Наименование порта.</param>
+            <param name="driverName">Наименование драйвера.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+            <param name="location">Местоположение принтера.</param>
+            <param name="parameters">Параметры принтера.</param>
+            <param name="sepFile"></param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,Printing.NET.IPort,Printing.NET.IDriver,System.String,System.String,System.String,System.String,Printing.NET.DataType,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+            <param name="location">Местоположение принтера.</param>
+            <param name="parameters">Параметры принтера.</param>
+            <param name="sepFile"></param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,Printing.NET.DataType,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="portName">Наименование порта.</param>
+            <param name="driverName">Наименование драйвера.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+            <param name="location">Местоположение принтера.</param>
+            <param name="parameters">Параметры принтера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,Printing.NET.IPort,Printing.NET.IDriver,System.String,System.String,System.String,System.String,Printing.NET.DataType,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+            <param name="location">Местоположение принтера.</param>
+            <param name="parameters">Параметры принтера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,Printing.NET.DataType,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="portName">Наименование порта.</param>
+            <param name="driverName">Наименование драйвера.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+            <param name="location">Местоположение принтера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,Printing.NET.IPort,Printing.NET.IDriver,System.String,System.String,System.String,System.String,Printing.NET.DataType,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+            <param name="location">Местоположение принтера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,Printing.NET.DataType)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="portName">Наименование порта.</param>
+            <param name="driverName">Наименование драйвера.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,Printing.NET.IPort,Printing.NET.IDriver,System.String,System.String,System.String,System.String,Printing.NET.DataType)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="portName">Наименование порта.</param>
+            <param name="driverName">Наименование драйвера.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,Printing.NET.IPort,Printing.NET.IDriver,System.String,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="portName">Наименование порта.</param>
+            <param name="driverName">Наименование драйвера.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,Printing.NET.IPort,Printing.NET.IDriver,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="portName">Наименование порта.</param>
+            <param name="driverName">Наименование драйвера.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,Printing.NET.IPort,Printing.NET.IDriver,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="portName">Наименование порта.</param>
+            <param name="driverName">Наименование драйвера.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,Printing.NET.IPort,Printing.NET.IDriver,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="portName">Наименование порта.</param>
+            <param name="driverName">Наименование драйвера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.#ctor(System.String,Printing.NET.IPort,Printing.NET.IDriver)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.Install(System.String)">
+            <summary>
+            Устанавливает принтер в системе.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.Uninstall(System.String)">
+            <summary>
+            Удаляет принтер из системы.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+        </member>
+        <member name="M:Printing.NET.Printer.AddPrinter(System.String,System.UInt32,Printing.NET.Native.PrinterInfo@)">
+            <summary>
+            Устанавливает принтер в системе.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="printerInfo">Структура данных.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Printer.GetDefaultPrinter(System.Text.StringBuilder,System.UInt32@)">
+            <summary>
+            Возвращает имя принтера, установленного в системе по умолчанию.
+            </summary>
+            <param name="printerName">Имя принтера.</param>
+            <param name="bytesNeeded">Размер символьного буфера имени.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Printer.SetDefaultPrinter(System.String)">
+            <summary>
+            Устанавливает имя принтера по умолчанию.
+            </summary>
+            <param name="printerName">Имя устанавливаемого по умолчанию принтера.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Printer.EnumPrinters(Printing.NET.Native.PrinterEnumFlag,System.String,System.UInt32,System.IntPtr,System.UInt32,System.UInt32@,System.UInt32@)">
+            <summary>
+            Получает список установленных в системе принтеров.
+            </summary>
+            <param name="flags">Флаги для выборки результатов.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="printers">Указатель на буфер структур.</param>
+            <param name="bufferSize">Размер буфера.</param>
+            <param name="bytesNeeded">Число требуемых байт для выделения памяти под буфер.</param>
+            <param name="bufferReturnedLength">Размер полученного буфера.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.Printer.DeletePrinter(System.IntPtr)">
+            <summary>
+            Удаляет принтер из системы.
+            </summary>
+            <param name="printer">Указатель на принтер.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="T:Printing.NET.PrintingApi">
+            <summary>
+            Представляет API для работы со службой печати.
+            </summary>
+        </member>
+        <member name="T:Printing.NET.PrintingApi.EnumInfo">
+            <summary>
+            Вспомагательный делегат для оптимизации кода в P/Invoke.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <param name="level">Уровень структуры данных.</param>
+            <param name="structs">Указатель на структуру данных.</param>
+            <param name="bufferSize">Размер буфера.</param>
+            <param name="bytesNeeded">Число требуемых байт для выделения памяти.</param>
+            <param name="bufferReturnedLength">Число выделенных байт памяти.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Printing.NET.PrintingApi.EnumInfo2">
+            <summary>
+            Вспомагательный делегат для оптимизации кода в P/Invoke.
+            </summary>
+            <param name="serverName">Имя сервера.</param>
+            <param name="environment">Окружение.</param>
+            <param name="level">Уровень структуры данных.</param>
+            <param name="structs">Указатель на структуру данных.</param>
+            <param name="bufferSize">Размер буфера.</param>
+            <param name="bytesNeeded">Число требуемых байт для выделения памяти.</param>
+            <param name="bufferReturnedLength">Число выделенных байт памяти.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Printing.NET.PrintingApi.Factory">
+            <summary>
+            Фабрика классов для <see cref="T:Printing.NET.PrintingApi"/>.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.PrintingApi.Monitors">
+            <summary>
+            Возвращает коллекцию всех установленных мониторов в системе.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.PrintingApi.Ports">
+            <summary>
+            Возвращает коллекцию всех октрытых портов печати в системе.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.PrintingApi.Drivers">
+            <summary>
+            Возвращает коллекцию всех установленных драйверов печати в системе.
+            </summary>
+        </member>
+        <member name="P:Printing.NET.PrintingApi.Printers">
+            <summary>
+            Возвращает коллекцию всех установленных устройств печати в системе.
+            </summary>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.#cctor">
+            <summary>
+            Статический инициализатор класса <see cref="T:Printing.NET.PrintingApi"/>.
+            </summary>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.CreateMonitor(System.String,System.String,Printing.NET.Environment,System.String)">
+            <summary>
+            Создаёт новый монитор печати в системе.
+            </summary>
+            <param name="name">Наименование монитора печати.</param>
+            <param name="dll">Путь к файлу dll монитора печати.</param>
+            <param name="environment">Окружение, для которого был написан монитор печати.</param>
+            <param name="serverName">Наименование сервера, на котором производится установка монитора печати.</param>
+            <returns>Экземпляр монитора печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.CreateMonitor(System.String,System.String,Printing.NET.Environment)">
+            <summary>
+            Создаёт новый монитор печати в системе.
+            </summary>
+            <param name="name">Наименование монитора печати.</param>
+            <param name="dll">Путь к файлу dll монитора печати.</param>
+            <param name="environment">Окружение, для которого был написан монитор печати.</param>
+            <returns>Экземпляр монитора печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.CreateMonitor(System.String,System.String,System.String)">
+            <summary>
+            Создаёт новый монитор печати в системе.
+            </summary>
+            <param name="name">Наименование монитора печати.</param>
+            <param name="dll">Путь к файлу dll монитора печати.</param>
+            <param name="serverName">Наименование сервера, на котором производится установка монитора печати.</param>
+            <returns>Экземпляр монитора печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.CreateMonitor(System.String,System.String)">
+            <summary>
+            Создаёт новый монитор печати в системе.
+            </summary>
+            <param name="name">Наименование монитора печати.</param>
+            <param name="dll">Путь к файлу dll монитора печати.</param>
+            <returns>Экземпляр монитора печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,System.String,Printing.NET.PortType,Printing.NET.Monitor,System.String)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="type">Тип порта.</param>
+            <param name="monitor">Монитор печати, на котором открывается порт.</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,System.String,Printing.NET.PortType,Printing.NET.Monitor)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="type">Тип порта.</param>
+            <param name="monitor">Монитор печати, на котором открывается порт.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,System.String,Printing.NET.PortType,System.String)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="type">Тип порта.</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,System.String,Printing.NET.PortType)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="type">Тип порта.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,System.String,Printing.NET.Monitor,System.String)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="monitor">Монитор печати, на котором открывается порт.</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,System.String,Printing.NET.Monitor)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="monitor">Монитор печати, на котором открывается порт.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,Printing.NET.Monitor,System.String)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="monitor">Монитор печати, на котором открывается порт.</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,Printing.NET.Monitor)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="monitor">Монитор печати, на котором открывается порт.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,Printing.NET.PortType,System.String)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="type">Тип порта.</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,Printing.NET.PortType)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="type">Тип порта.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,System.String,System.String)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String,System.String)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <param name="description">Описание порта.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.OpenPort(System.String)">
+            <summary>
+            Открывает новый порт печати в системе.
+            </summary>
+            <param name="name">Наименование порта.</param>
+            <returns>Экземпляр порта печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,Printing.NET.DataType,System.String,Printing.NET.Monitor,System.String)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="defaultDataType">Тип данных принтера по умолчанию.</param>
+            <param name="dependentFiles">Зависимые файлы.</param>
+            <param name="monitor">Монитор печати.</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,Printing.NET.DataType,System.String,Printing.NET.Monitor)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="defaultDataType">Тип данных принтера по умолчанию.</param>
+            <param name="dependentFiles">Зависимые файлы.</param>
+            <param name="monitor">Монитор печати.</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,Printing.NET.DataType,System.String,System.String)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="defaultDataType">Тип данных принтера по умолчанию.</param>
+            <param name="dependentFiles">Зависимые файлы.</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,Printing.NET.DataType,System.String)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="defaultDataType">Тип данных принтера по умолчанию.</param>
+            <param name="dependentFiles">Зависимые файлы.</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,Printing.NET.DataType)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="defaultDataType">Тип данных принтера по умолчанию.</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment,System.String)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String,System.String,System.UInt32,Printing.NET.Environment)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="environment">Окружение, для которого был написан драйвер (например, Windows x86, Windows IA64 или Windows x64).</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String,System.String,System.UInt32,System.String)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String,System.String,System.UInt32)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="version">Номер версии операционной системы, для которой был написан драйвер. Поддерживаемые значения - 3 и 4 (V3 и V4 номера версий драйвера соответственно).</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <param name="helpFile">Полный или относительный путь к dll данных HLP-файла драйвера (например, "C:\DRIVERS\Pscript.hlp").</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.InstallDriver(System.String,System.String,System.String,System.String)">
+            <summary>
+            Устанавливает новый драйвер в системе.
+            </summary>
+            <param name="name">Наименование драйвера.</param>
+            <param name="dll">Полный или относительный путь к файлу драйвера устройства (например, "C:\DRIVERS\Pscript.dll").</param>
+            <param name="dataFile">Полный или относительный путь к файлу данных драйвера (например, "C:\DRIVERS\Qms810.ppd").</param>
+            <param name="configFile">Полный или относительный путь к dll данных конфигурации драйвера (например, "C:\DRIVERS\Pscriptui.dll").</param>
+            <returns>Экземпляр драйвера печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.RunPrinter(System.String,Printing.NET.Port,Printing.NET.Driver,System.String,System.String,System.String,System.String,Printing.NET.DataType,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+            <param name="location">Местоположение принтера.</param>
+            <param name="parameters">Параметры принтера.</param>
+            <param name="sepFile"></param>
+            <returns>Экземпляр устройства печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.RunPrinter(System.String,Printing.NET.Port,Printing.NET.Driver,System.String,System.String,System.String,System.String,Printing.NET.DataType,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+            <param name="location">Местоположение принтера.</param>
+            <param name="parameters">Параметры принтера.</param>
+            <returns>Экземпляр устройства печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.RunPrinter(System.String,Printing.NET.Port,Printing.NET.Driver,System.String,System.String,System.String,System.String,Printing.NET.DataType,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+            <param name="location">Местоположение принтера.</param>
+            <returns>Экземпляр устройства печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.RunPrinter(System.String,Printing.NET.Port,Printing.NET.Driver,System.String,System.String,System.String,System.String,Printing.NET.DataType)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <param name="dataType">Тип данных печати.</param>
+            <returns>Экземпляр устройства печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.RunPrinter(System.String,Printing.NET.Port,Printing.NET.Driver,System.String,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="description">Описание принтера.</param>
+            <returns>Экземпляр устройства печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.RunPrinter(System.String,Printing.NET.Port,Printing.NET.Driver,System.String,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Экземпляр устройства печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.RunPrinter(System.String,Printing.NET.Port,Printing.NET.Driver,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <param name="shareName">Публичное наименование принтера.</param>
+            <returns>Экземпляр устройства печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.RunPrinter(System.String,Printing.NET.Port,Printing.NET.Driver,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <param name="processorName">Наименование процессора печати.</param>
+            <returns>Экземпляр устройства печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.RunPrinter(System.String,Printing.NET.Port,Printing.NET.Driver)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.Printer"/>.
+            </summary>
+            <param name="name">Наименование принтера.</param>
+            <param name="port">Порт, к которому привязан принтер.</param>
+            <param name="driver">Драйвер, который связан с принтером.</param>
+            <returns>Экземпляр устройства печати.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.GetInfo``1(Printing.NET.PrintingApi.EnumInfo,System.String,System.UInt32)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="level">Уровень структуры.</param>
+            <returns>Коллекция нативных структур Spooler API.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.GetInfo``1(Printing.NET.PrintingApi.EnumInfo,System.String)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <returns>Коллекция нативных структур Spooler API.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.GetInfo``1(Printing.NET.PrintingApi.EnumInfo,System.UInt32)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="level">Уровень структуры.</param>
+            <returns>Коллекция нативных структур Spooler API.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.GetInfo``1(Printing.NET.PrintingApi.EnumInfo)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <returns>Коллекция нативных структур Spooler API.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.GetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String,System.String,System.UInt32)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <param name="level">Уровень структуры.</param>
+            <returns>Коллекция нативных структур Spooler API.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.GetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String,System.String)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <returns>Коллекция нативных структур Spooler API.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.GetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String,System.UInt32)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <param name="level">Уровень структуры.</param>
+            <returns>Коллекция нативных структур Spooler API.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.GetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <returns>Коллекция нативных структур Spooler API.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.GetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.UInt32)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="level">Уровень структуры.</param>
+            <returns>Коллекция нативных структур Spooler API.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.GetInfo``1(Printing.NET.PrintingApi.EnumInfo2)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <returns>Коллекция нативных структур Spooler API.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo,System.String,System.UInt32,``0[]@,Printing.NET.PrintingException@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <param name="e">Исключение, возникшее во время операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo,System.String,System.UInt32,``0[]@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo,System.String,``0[]@,Printing.NET.PrintingException@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <param name="e">Исключение, возникшее во время операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo,System.String,``0[]@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo,System.UInt32,``0[]@,Printing.NET.PrintingException@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <param name="e">Исключение, возникшее во время операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo,System.UInt32,``0[]@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo,``0[]@,Printing.NET.PrintingException@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <param name="e">Исключение, возникшее во время операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo,``0[]@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String,System.String,System.UInt32,``0[]@,Printing.NET.PrintingException@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <param name="e">Исключение, возникшее во время операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String,System.String,System.UInt32,``0[]@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String,System.String,``0[]@,Printing.NET.PrintingException@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <param name="e">Исключение, возникшее во время операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String,System.String,``0[]@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="serverName">Имя сервера.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String,System.UInt32,``0[]@,Printing.NET.PrintingException@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <param name="e">Исключение, возникшее во время операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String,System.UInt32,``0[]@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String,``0[]@,Printing.NET.PrintingException@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <param name="e">Исключение, возникшее во время операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.String,``0[]@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="arg">Дополнительный аргумент делегата.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.UInt32,``0[]@,Printing.NET.PrintingException@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <param name="e">Исключение, возникшее во время операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,System.UInt32,``0[]@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="level">Уровень структуры.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,``0[]@,Printing.NET.PrintingException@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <param name="e">Исключение, возникшее во время операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryGetInfo``1(Printing.NET.PrintingApi.EnumInfo2,``0[]@)">
+            <summary>
+            Получает коллекцию нативных структур Spooler API и в случае успеха возвращает True. Вспомагательный метод для оптимизации кода в P/Invoke.
+            </summary>
+            <typeparam name="T">Тип структуры.</typeparam>
+            <param name="handler">Делегат-обработчик нативного метода из Spooler API.</param>
+            <param name="dataCollection">Коллекция нативных структур Spooler API.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryStop(Printing.NET.PrintingException@)">
+            <summary>
+            Останавливает службу печати.
+            </summary>
+            <param name="e">Исключение, возникшее в ходе выполнения операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryStop">
+            <summary>
+            Останавливает службу печати.
+            </summary>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryStart(Printing.NET.PrintingException@)">
+            <summary>
+            Запускает службу печати.
+            </summary>
+            <param name="e">Исключение, возникшее в ходе выполнения операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryStart">
+            <summary>
+            Запускает службу печати.
+            </summary>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryRestart(Printing.NET.PrintingException@)">
+            <summary>
+            Перезагружает службу печати.
+            </summary>
+            <param name="e">Исключение, возникшее в ходе выполнения операции.</param>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingApi.TryRestart">
+            <summary>
+            Перезагружает службу печати.
+            </summary>
+            <returns>True, если операция прошла успешно, иначе False.</returns>
+        </member>
+        <member name="T:Printing.NET.PrintingException">
+            <summary>
+            Представляет ошибку менеджера печати.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorFileNotFound">
+            <summary>
+            Код ошибки "Файл не найден".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorInsufficientBuffer">
+            <summary>
+            Код ошибки "Неинициализированный буфер".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorModuleNotFound">
+            <summary>
+            Код ошибки "Модуль не найден".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorInvalidPrinterName">
+            <summary>
+            Код ошибки "Имя принтера задано неверно".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorMonitorUnknown">
+            <summary>
+            Код ошибки "Указан неизвестный монитор печати".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorPrinterDriverIsReadyUsed">
+            <summary>
+            Код ошибки "Указанный драйвер принтера занят".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorPrinterJobFileNotFound">
+            <summary>
+            Код ошибки "Не найден файл диспетчера очереди".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorStartDocPrinterNotCalling">
+            <summary>
+            Код ошибки "Не был произведен вызов StartDocPrinter".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorAddJobNotCalling">
+            <summary>
+            Код ошибки "Не был произведен вызов AddJob".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorPrinterProcessorAlreadyInstalled">
+            <summary>
+            Код ошибки "Указанный процессор печати уже установлен".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorMonitorAlreadyInstalled">
+            <summary>
+            Код ошибки "Указанный монитор печати уже установлен".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorInvalidMonitor">
+            <summary>
+            Код ошибки "Указанный монитор печати не имеет требуемых функций".
+            </summary>
+        </member>
+        <member name="F:Printing.NET.PrintingException.ErrorMonitorIsReadyUsed">
+            <summary>
+            Код ошибки "Указанный монитор печати сейчас уже используется".
+            </summary>
+        </member>
+        <member name="M:Printing.NET.PrintingException.#ctor">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.PrintingException"/>.
+            </summary>
+        </member>
+        <member name="M:Printing.NET.PrintingException.#ctor(System.Int32)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.PrintingException"/>.
+            </summary>
+            <param name="nativeErrorCode">Код ошибки Win32.</param>
+        </member>
+        <member name="M:Printing.NET.PrintingException.#ctor(System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.PrintingException"/>.
+            </summary>
+            <param name="message">Сообщение об ошибке.</param>
+        </member>
+        <member name="M:Printing.NET.PrintingException.#ctor(System.Int32,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.PrintingException"/>.
+            </summary>
+            <param name="nativeErrorCode">Код ошибки Win32.</param>
+            <param name="message">Сообщение об ошибке.</param>
+        </member>
+        <member name="M:Printing.NET.PrintingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.PrintingException"/>.
+            </summary>
+            <param name="message">Сообщение об ошибке.</param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Printing.NET.PrintingException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:Printing.NET.PrintingException"/>.
+            </summary>
+            <param name="info">Данные для сериализации.</param>
+            <param name="context">Контекст потока сериализации.</param>
+        </member>
+        <member name="T:Printing.NET.PrintingExtensions">
+            <summary>
+            Представляет статический класс расширений типов.
+            </summary>
+        </member>
+        <member name="M:Printing.NET.PrintingExtensions.GetEnvironmentName(Printing.NET.Environment)">
+            <summary>
+            Возвращает имя окружения системы, совместимое с WinAPI.
+            </summary>
+            <param name="environment">Окружение системы.</param>
+            <returns>Строковое представление имени окружения системы.</returns>
+        </member>
+        <member name="M:Printing.NET.PrintingExtensions.GetEnvironment(System.String)">
+            <summary>
+            Возвращает <see cref="T:Printing.NET.Environment"/>, эквивалентный входной строке имени окружения.
+            </summary>
+            <param name="environmentString">Входная строка имени окружения.</param>
+            <returns><see cref="T:Printing.NET.Environment"/>, эквивалентный входной строке имени окружения.</returns>
+        </member>
+        <member name="T:Printing.NET.XcvDataType">
+            <summary>
+            Тип операции для <see cref="!:Port.XcvData(IntPtr, string, IntPtr, uint, IntPtr, uint, out uint, out uint)"/>.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.XcvDataType.AddPort">
+            <summary>
+            Добавить новый порт.
+            </summary>
+        </member>
+        <member name="F:Printing.NET.XcvDataType.DeletePort">
+            <summary>
+            Удалить существующий порт.
+            </summary>
+        </member>
+    </members>
+</doc>

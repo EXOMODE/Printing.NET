@@ -6,7 +6,7 @@
     public static class PrintingExtensions
     {
         /// <summary>
-        /// Возвращает имя окружение системы, совместимое с WinAPI.
+        /// Возвращает имя окружения системы, совместимое с WinAPI.
         /// </summary>
         /// <param name="environment">Окружение системы.</param>
         /// <returns>Строковое представление имени окружения системы.</returns>
