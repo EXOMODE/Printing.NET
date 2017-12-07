@@ -1,70 +1,43 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6BC5AA28-BFD8-4FBF-9510-28DED790442C}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Printing.NET</RootNamespace>
-    <AssemblyName>Printing.NET</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFrameworks>net35;netcoreapp2.0;netstandard2.0</TargetFrameworks>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Yuriy Esin</Authors>
+    <Company>Escorp Dynamics</Company>
+    <Description>Managed high-level library for working with printing and native Spooler service.</Description>
+    <Copyright>Escorp Dynamics (c) 2017</Copyright>
+    <PackageIconUrl>https://image.ibb.co/cwjuSw/Logo_Orange.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/Exomode/Printing.NET</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>spooler printing api net core standard</PackageTags>
+    <PackageProjectUrl>https://github.com/Exomode/Printing.NET</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/Exomode/Printing.NET/blob/master/LICENSE</PackageLicenseUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.ServiceProcess.ServiceController">
+      <Version>4.4.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
+    <PackageReference Include="System.ServiceProcess.ServiceController">
+      <Version>4.4.0</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net35'">
     <Reference Include="System.ServiceProcess" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="DataType.cs" />
-    <Compile Include="Driver.cs" />
-    <Compile Include="Environment.cs" />
-    <Compile Include="IDriver.cs" />
-    <Compile Include="IMonitor.cs" />
-    <Compile Include="IPort.cs" />
-    <Compile Include="IPrintableDevice.cs" />
-    <Compile Include="IPrinter.cs" />
-    <Compile Include="Monitor.cs" />
-    <Compile Include="Native\DriverInfo.cs" />
-    <Compile Include="Native\MonitorInfo.cs" />
-    <Compile Include="Native\PortData.cs" />
-    <Compile Include="Native\PortInfo.cs" />
-    <Compile Include="Native\PrinterAccess.cs" />
-    <Compile Include="Native\PrinterDefaults.cs" />
-    <Compile Include="Native\PrinterEnumFlag.cs" />
-    <Compile Include="Native\PrinterInfo.cs" />
-    <Compile Include="Port.cs" />
-    <Compile Include="PortType.cs" />
-    <Compile Include="PrintableDevice.cs" />
-    <Compile Include="Printer.cs" />
-    <Compile Include="PrintingApi.cs" />
-    <Compile Include="PrintingException.cs" />
-    <Compile Include="PrintingExtensions.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XcvDataType.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>
